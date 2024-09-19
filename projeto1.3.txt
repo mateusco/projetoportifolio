@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Suave com Divs</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Certifique-se de que o caminho está correto -->
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#qualificacoes">Qualificações</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="circle"></div>
+        <div class="box box2">
+            <div id="typingEffect"></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">60%</div>
+            </div>
+            <img src="faesa.png" alt="Logo" class="logo">
+        </div>
+        <div class="box box3">
+            <div class="progress-item">
+                <img src="senac.png" alt="Concluído" class="status-icon">
+                <p>Técnico de Informática - Senac</p>
+                <div class="status-text concluido">Concluído</div>
+            </div>
+            <div class="progress-item">
+                <img src="faesa.png" alt="Em Andamento" class="status-icon">
+                <p>Cursando Análise e Desenvolvimento de Sistemas na FAESA - 3º período</p>
+                <div class="status-text andamento">Em Andamento</div>
+            </div>
+            <div class="progress-item">
+                <img src="udemy-new-20212512-Photoroom.png" alt="Concluído" class="status-icon">
+                <p>MD100 - Udemy</p>
+                <div class="status-text concluido">Concluído</div>
+            </div>
+        </div>
+        <div class="box box4">
+            <h3>Projetos</h3>
+            <p>Estou atualmente trabalhando em alguns projetos interessantes. Em breve, esta seção será atualizada com detalhes e links para projetos reais. Enquanto isso, você pode conferir o meu trabalho no GitHub.</p>
+            <a href="https://github.com/seu-usuario" target="_blank" class="github-button">Visite meu GitHub</a>
+        </div>
+        <div class="box box5">
+            <p>Empresa: Mindworks Informática LTDA - Cargo: Estagiário (De Julho/2021 a Agosto/2021)</p>
+            <p>Empresa: Mindworks Informática LTDA - Cargo: Técnico Suporte II (De Agosto/2022 a Setembro/2024)</p>
+            <img src="LOGO-NOVA-MINDWORKS-Photoroom.png" alt="Logo Empresa" class="logo-qualificacoes">
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Certifique-se de que o caminho está correto -->
+</body>
+</html> html
+* {
+    box-sizing: border-box; /* Inclui padding e border na largura/altura total */
+}
+
+body, html {
+    margin: 0;
+    height: 100%; /* Altura total da tela */
+    font-family: 'Roboto', sans-serif; /* Usando a fonte Roboto */
+}
+
+.navbar {
+    background-color: #333; /* Cor de fundo da barra de navegação */
+    overflow: hidden; /* Esconde o conteúdo que excede a altura */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    margin: 0; /* Remove a margem */
+    padding: 0; /* Remove o padding */
+    display: flex; /* Usa flexbox para disposição horizontal */
+}
+
+.navbar li {
+    flex: 1; /* Cada item ocupa espaço igual */
+}
+
+.navbar a {
+    display: block; /* Faz os links ocuparem todo o espaço do item */
+    color: #2196F3; /* Cor azul */
+    text-align: center; /* Centraliza o texto */
+    padding: 14px 16px; /* Espaçamento interno */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.navbar a:hover {
+    background-color: #575757; /* Cor de fundo ao passar o mouse */
+}
+
+.container {
+    display: flex; /* Usar flexbox para alinhar as divs verticalmente */
+    flex-direction: column; /* Alinha as divs em coluna */
+    width: 100%; /* Preencher toda a largura da tela */
+    height: 250vh; /* Altura total para permitir rolagem */
+    overflow-y: auto; /* Permite rolagem vertical */
+}
+
+.box {
+    flex: 0 0 50vh; /* Cada div ocupa 50% da altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none; /* Remove o sombreamento para evitar separação */
+    text-align: left; /* Alinhamento à esquerda */
+    margin: 0; /* Sem margens */
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    padding: 20px; /* Adiciona espaçamento interno */
+}
+
+.box1 {
+    background-color: #4CAF50; /* Verde */
+    background-image: url('f.jpg'); /* Imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a área da div */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+}
+
+.box2 {
+    background-color: #D3D3D3; /* Cinza claro */
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    padding: 20px; /* Adiciona espaçamento interno */
+    position: relative; /* Para o posicionamento de elementos internos */
+}
+
+.progress-container {
+    width: 30%; /* Largura da barra */
+    background-color: #e0e0e0; /* Cor de fundo da barra */
+    border-radius: 25px; /* Bordas arredondadas */
+    margin: 20px 0; /* Margem superior e inferior */
+    position: absolute; /* Mantém a barra fixa na div */
+    right: 0; /* Alinha à direita */
+    top: 90px; /* Ajuste este valor para mover a barra para cima */
+    display: flex; /* Usar flexbox para alinhar o conteúdo dentro */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.progress-bar {
+    height: 30px; /* Altura da barra */
+    background-color: #2196F3; /* Cor azul */
+    text-align: center; /* Alinha texto ao centro */
+    line-height: 30px; /* Centraliza verticalmente o texto */
+    color: white; /* Cor do texto */
+    border-radius: 25px; /* Bordas arredondadas da barra */
+    width: 0; /* Começa com 0% de largura */
+    max-width: 100%; /* Garante que não ultrapasse o contêiner */
+    transition: width 1s ease; /* Animação de transição */
+}
+
+.logo {
+    width: 140px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 10px; /* Espaçamento acima da logo */
+    display: block; /* Para que a logo ocupe uma nova linha */
+    position: absolute; /* Para posicionamento */
+    right: 120px; /* Ajuste este valor para mover mais para a direita */
+    top: 160px; /* Aumente este valor para descer mais a logo */
+    left: auto; /* Remove a centralização horizontal */
+    transform: none; /* Remove a transformação */
+}
+
+.box3 {
+    background-color: #D3D3D3; /* Cor de fundo cinza claro */
+    display: flex; /* Usar flexbox */
+    flex-direction: row; /* Organizar o conteúdo em linha */
+    justify-content: flex-start; /* Alinhar o conteúdo no topo */
+    align-items: center; /* Alinhar o conteúdo verticalmente no centro */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Mesma fonte que a div2 */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: left; /* Alinhamento à esquerda */
+    gap: 20px; /* Espaço entre a imagem e o texto */
+}
+.box3 {
+    background-color: #D3D3D3; /* Cinza claro */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organizar o conteúdo em coluna */
+    align-items: flex-start; /* Alinhar o conteúdo à esquerda */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: left; /* Alinhar o texto à esquerda */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma leve sombra */
+    margin: 2px; /* Margem externa para separar das outras divs */
+}
+
+.progress-item {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Alinhar verticalmente */
+    margin-bottom: 20px; /* Espaçamento entre itens */
+}
+
+.status-icon {
+    width: 80px; /* Largura do ícone aumentada */
+    height: 40px; /* Altura do ícone aumentada */
+    margin-right: 15px; /* Espaçamento à direita do ícone */
+}
+
+.status-text {
+    font-weight: bold; /* Destacar o texto do status */
+    margin-left: 10px; /* Espaçamento à esquerda do texto do status */
+    transition: color 0.3s ease; /* Transição suave para a cor do texto */
+}
+
+.status-text:before {
+    content: ''; /* Conteúdo vazio antes do texto */
+    display: inline-block; /* Faz o conteúdo se comportar como um bloco */
+    width: 12px; /* Largura do ponto aumentada */
+    height: 12px; /* Altura do ponto aumentada */
+    border-radius: 50%; /* Faz o ponto ser redondo */
+    margin-right: 5px; /* Espaçamento à direita do ponto */
+    transition: background-color 0.3s ease; /* Transição suave para a cor do ponto */
+}
+
+.status-text.concluido:before {
+    background-color: #4CAF50; /* Verde para concluído */
+}
+
+.status-text.andamento:before {
+    background-color: #FFC107; /* Amarelo para andamento */
+}
+
+.progress-item:hover .status-text {
+    color: #2196F3; /* Cor do texto ao passar o mouse */
+    font-size: 20px; /* Aumenta o tamanho da fonte ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do texto ao passar o mouse */
+}
+
+.box3 p:hover {
+    transform: translateY(-5px); /* Move o texto 5px para cima ao passar o mouse */
+}
+
+.logo-qualificacoes {
+    width: 120px; /* Tamanho da imagem */
+    height: auto; /* Manter a proporção */
+    display: block; /* Garantir que a imagem seja exibida corretamente */
+    right: 120px; /* Ajuste este valor para mover mais para a direita */
+}
+.box4 {
+    background-color: #D3D3D3; /* Cinza claro */
+    color: #333; /* Cor do texto, ajustada para melhor contraste */
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organizar o conteúdo em coluna */
+    justify-content: center; /* Centralizar o conteúdo verticalmente */
+    align-items: center; /* Centralizar o conteúdo horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Fonte do texto */
+    text-align: center; /* Centralizar o texto */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionar uma leve sombra */
+}
+
+.project-placeholder {
+    margin-top: 20px; /* Espaçamento acima da área de placeholder */
+    padding: 10px; /* Espaçamento interno */
+    border: 2px dashed #333; /* Borda em estilo tracejado */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 100%; /* Largura completa */
+    max-width: 600px; /* Largura máxima */
+    background-color: #fff; /* Fundo branco para contraste */
+    color: #333; /* Cor do texto */
+    font-style: italic; /* Estilo itálico para o texto */
+}
+
+.github-button {
+    display: inline-block; /* Fazer o link se comportar como um botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    margin: 20px 0; /* Margem superior e inferior */
+    background-color: #fff; /* Fundo branco */
+    color: #007bff; /* Cor do texto azul (tom padrão azul) */
+    text-decoration: none; /* Remover sublinhado do link */
+    border: 2px solid #007bff; /* Borda azul (tom padrão azul) */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    transition: color 0.3s ease, border-color 0.3s ease; /* Transição suave para cor do texto e borda */
+}
+
+.github-button:hover {
+    color: #fff; /* Cor do texto branca ao passar o mouse */
+    background-color: #007bff; /* Cor de fundo azul ao passar o mouse */
+    border-color: #007bff; /* Cor da borda azul ao passar o mouse */
+}
+
+.box5 {
+    background-color: #D3D3D3; /* Cor de fundo cinza claro */
+    display: flex; /* Usar flexbox */
+    flex-direction: row; /* Organizar o conteúdo em linha */
+    justify-content: flex-start; /* Alinhar o conteúdo no topo */
+    align-items: center; /* Alinhar o conteúdo verticalmente no centro */
+    padding: 20px; /* Espaçamento interno */
+    font-family: Arial, Helvetica, sans-serif; /* Mesma fonte que a div2 */
+    font-size: 18px; /* Tamanho da fonte */
+    text-align: left; /* Alinhamento à esquerda */
+    gap: 20px; /* Espaço entre a imagem e o texto */
+}
+.box5 p {
+    transition: transform 0.3s ease; /* Suaviza a animação */
+}
+
+.box5 p:hover {
+    transform: translateY(-5px); /* Move o texto 5px para cima ao passar o mouse */
+}
+
+.circle {
+    position: absolute; /* Posição absoluta para o círculo */
+    top: calc(50vh + 50px); /* Ajuste para posicionar na linha de separação */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centralizar */
+    width: 120px; /* Largura do círculo */
+    height: 120px; /* Altura do círculo */
+    background-color: black; /* Cor de fundo do círculo (opcional) */
+    border: 5px solid white; /* Borda branca */
+    border-radius: 50%; /* Faz o círculo ser redondo */
+    z-index: 1; /* Garante que o círculo fique acima das divs */
+    background-image: url('fotoperfil.jfif'); /* Imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir todo o círculo */
+    background-position: center; /* Centraliza a imagem */
+}
+
+#typingEffect {
+    font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: black; /* Cor do texto */
+    white-space: pre-wrap; /* Permite que o texto mantenha quebras de linha */
+    overflow-wrap: break-word; /* Quebra palavras longas para a próxima linha */
+    max-width: 400px; /* Limita a largura do texto */
+    margin-left: 20px; /* Mova o texto para a esquerda, ajuste o valor conforme necessário */
+    margin-right: auto; /* Garante que a margem direita seja automática */
+    margin-top: 30px; /* Ajuste este valor para descer o texto */
+    transition: transform 0.3s ease; /* Adiciona transição suave */
+}
+
+#typingEffect:hover {
+    transform: translateY(-5px); /* Move o texto levemente para cima ao passar o mouse */
+}
+css
+const text = "Olá, sou Matheus Castro, tenho 25 anos e trabalho como Técnico de Suporte na Mindworks,|atendendo a Cesan há 3 anos. Sou formado em Técnico de Informática pelo Senac e estou no 3º|período de Análise e Desenvolvimento de Sistemas na FAESA.";
+let index = 0;
+const typingEffectElement = document.getElementById("typingEffect");
+
+function type() {
+    if (index < text.length) {
+        const char = text.charAt(index);
+        if (char === '|') {
+            typingEffectElement.innerHTML += '<br>'; // Substitui | por uma quebra de linha
+        } else {
+            typingEffectElement.innerHTML += char; // Adiciona o caractere normal
+        }
+        index++;
+        setTimeout(type, 20); // Ajuste a velocidade do efeito aqui
+    }
+}
+
+type();
+
+const progressBar = document.getElementById('progressBar');
+
+function animateProgressBar() {
+    let width = 0;
+    const targetWidth = 60; // Percentual de preenchimento desejado
+
+    const interval = setInterval(() => {
+        if (width >= targetWidth) {
+            clearInterval(interval);
+        } else {
+            width++;
+            progressBar.style.width = width + '%'; // Atualiza a largura da barra
+            progressBar.textContent = width + '%'; // Atualiza o texto da barra
+        }
+    }, 20); // Ajuste a velocidade do aumento
+}
+
+animateProgressBar();
+
+js
